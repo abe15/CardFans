@@ -1,0 +1,68 @@
+<div class="modal-header px-4 py-3 bg-dark">
+  <h3 class="modal-title">Log in</h3>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+
+<div class="modal-body px-4 py-3 bg-dark">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <span style="text-align: center">
+      New?
+      <a
+        id="viewRegister"
+        class="formToggle"
+        tabindex="900"
+        (click)="openRegister()"
+      >
+        Create an account
+      </a>
+    </span>
+    <form [formGroup]="loginForm" (ngSubmit)="formSubmit(loginForm)">
+      <ng-container>
+        <div class="form-group mb-3">
+          <label for="usernameInput" class="form-label">User Name</label>
+          <input
+            class="mb-3"
+            formControlName="username"
+            type="text"
+            class="form-control bg-dark text-white"
+            id="usernameInput"
+            placeholder=""
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="loginForm; control: 'username'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control bg-dark text-white"
+            id="passwordInput"
+            placeholder=""
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="loginForm; control: 'password'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="errorMessage.length > 0" class="alert alert-danger">
+          <p>{{ errorMessage }}</p>
+        </div>
+
+        <div style="text-align: center">
+          <button type="submit" class="btn btn-danger">Log in</button>
+        </div>
+      </ng-container>
+    </form>
+  </div>
+</div>

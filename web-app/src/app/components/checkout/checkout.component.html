@@ -1,0 +1,80 @@
+<h3 class="text-center">Checkout</h3>
+<div id="checkout-div">
+    <div id="form-div">
+        <h4 class="text-center">Shipping Information</h4>
+        <form id="billing-form" class="row g-3" [formGroup] = "shippingForm" (ngSubmit)="submitForm(shippingForm)">
+            <div class="col-md-6">
+                <label for="firstName" class="form-label" id="firstName-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label" id="lastName-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label" id="email-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="col-md-6">
+                <label for="phoneNumber" class="form-label" id="phoneNumber-label">Phone Number</label>
+                <input type="email" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+            </div>
+            <div class="col-12">
+                <label for="address1" class="form-label" id="address1-label">Address Line 1</label>
+                <input type="text" class="form-control" id="address1" formControlName="address1">
+            </div>
+            <div class="col-12">
+                <label for="address2" class="form-label" id="address2-label">Address Line 2</label>
+                <input type="text" class="form-control" id="address2" formControlName="address2">
+            </div>
+            <div class="col-sm-4">
+                <label for="city" class="form-label" id="city-label">City</label>
+                <input type="text" class="form-control" id="city" formControlName="city">
+            </div>
+            <div class="col-sm-4">
+                <label for="state" class="form-label" id="state-label">State</label>
+                <input type="text" class="form-control" id="state" formControlName="state">
+            </div>
+            <div class="col-sm-4">
+                <label for="zipCode" class="form-label" id="zipCode-label">Zip Code</label>
+                <input type="text" class="form-control" id="zipCode" formControlName="zipCode">
+            </div>
+            <div class="col-12">
+                <label for="country" class="form-label" id="country-label">Country</label>
+                <input type="text" class="form-control" id="country" formControlName="country">
+            </div>
+            <p *ngIf="formInvalid" class="invalid-form">Please fill out the fields marked in red.</p>
+            <button class="btn btn-primary" type="button" (click)="paypalButton($event.target)">Pay with PayPal</button>
+            <button class="btn btn-danger" type="submit" id="order-btn" disabled>Place Order</button>
+        </form> 
+    </div>
+
+    <div id="cart-preview">
+        <h4 class="text-center">Order</h4>
+        <table class="table">
+            <thead>
+                <th>Product</th>
+                <th>Total</th>
+            </thead>
+            <tbody>
+                <tr class="order-product" *ngFor="let entry of cart">
+                    <td>{{entry.name}} x {{entry.quantity}}</td>
+                    <td>${{entry.total.toFixed(2)}}</td>
+                </tr>
+                <tr id="subtotal">
+                    <td>Subtotal:</td>
+                    <td>${{subtotal.toFixed(2)}}</td>
+                </tr>
+                <tr id="shipping">
+                    <td>Estimated Shipping:</td>
+                    <td>${{shipping.toFixed(2)}}</td>
+                </tr>
+                <tr id="grand-total">
+                    <td>Grand Total:</td>
+                    <td>${{grandTotal.toFixed(2)}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

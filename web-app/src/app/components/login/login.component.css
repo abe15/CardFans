@@ -1,0 +1,10 @@
+input {
+  background-color: #1c1c1c;
+  color: white;
+}
+input.ng-dirty.ng-invalid {
+  border: 5px solid #ff0000;
+}
+input.ng-dirty.ng-valid {
+  border: 4px solid #6bc502;
+}

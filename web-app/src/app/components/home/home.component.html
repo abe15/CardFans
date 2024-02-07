@@ -1,0 +1,48 @@
+
+<div id="home-carousel" class="carousel slide" data-bs-ride="false">
+    <!-- Indicators showing slide positon -->
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <!-- Pictures and Captions-->
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="../../../assets/Images/carousel/homescreen.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        <h5>Welcome to Card Fans</h5>
+        <p>Your #1 source of the latest and greatest in playing cards!</p>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <img src="../../../assets/Images/carousel/archangel.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        <h5>*NEW* Bicycle Archangels</h5>
+        <p>This heaven-sent deck is the latest to hit the shelves of Card Fans</p>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <img src="../../../assets/Images/carousel/sunspot.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        <h5>Bicycle Stargazer Sunspot</h5>
+        <p>Brighten up your collection with the latest in Bicycle's Stargazer line</p>
+        </div>
+    </div>
+    </div>
+    <!-- Forward and Back Buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#home-carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#home-carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div id="featured-products">
+    <h2 id="featured-title">Featured Products</h2>
+    <app-product [products]= 'featuredProducts'></app-product>
+    <a id="featured-more" routerLink="/products">Click here to browse more products &rarr;</a>
+</div>

@@ -1,0 +1,188 @@
+<div class="modal-header px-4 py-3 bg-dark">
+  <h3 class="modal-title">Register</h3>
+
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+
+<div class="modal-body px-4 py-3 bg-dark">
+  <div class="row g-3 h-100">
+    <span style="text-align: center">
+      Been here before?
+      <a
+        id="viewRegister"
+        class="formToggle"
+        tabindex="900"
+        (click)="openLogin()"
+      >
+        Log in
+      </a>
+    </span>
+
+    <div class="container" id="form-div">
+      <form
+        [formGroup]="profileForm"
+        (ngSubmit)="formSubmit(profileForm)"
+        class="row mb-4 h-100"
+      >
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label" for="firstName">First name</label>
+            <input
+              type="text"
+              formControlName="firstName"
+              id="firstName"
+              class="form-control"
+            />
+            <ul class="text-danger list-unstyled mt-1">
+              <li
+                *validationErrors="
+                  profileForm;
+                  control: 'firstName';
+                  label: 'first name';
+                  let err
+                "
+              >
+                {{ err }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label" for="lastName">Last name</label>
+            <input
+              type="text"
+              formControlName="lastName"
+              class="form-control"
+            />
+            <ul class="text-danger list-unstyled mt-1">
+              <li
+                *validationErrors="
+                  profileForm;
+                  control: 'lastName';
+                  label: 'last name';
+                  let err
+                "
+              >
+                {{ err }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label" for="addressLine1">Address</label>
+          <input
+            type="text"
+            formControlName="addressLine1"
+            class="form-control"
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li
+              *validationErrors="
+                profileForm;
+                control: 'addressLine1';
+                label: 'address';
+                let err
+              "
+            >
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="form-label" for="city">City</label>
+            <input type="text" formControlName="city" class="form-control" />
+            <ul class="text-danger list-unstyled mt-1">
+              <li *validationErrors="profileForm; control: 'city'; let err">
+                {{ err }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="form-label" for="zipCode">Zip code</label>
+            <input
+              type="text"
+              formControlName="zipCode"
+              class="form-control"
+            />
+            <ul class="text-danger list-unstyled mt-1">
+              <li
+                *validationErrors="
+                  profileForm;
+                  control: 'zipCode';
+                  label: 'zip code';
+                  let err
+                "
+              >
+                {{ err }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="form-label" for="state">State</label>
+            <input type="text" formControlName="state" class="form-control" />
+            <ul class="text-danger list-unstyled mt-1">
+              <li *validationErrors="profileForm; control: 'state'; let err">
+                {{ err }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-group col-12">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control" />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="profileForm; control: 'email'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+        <!--username-->
+        <div class="form-group col-12">
+          <label class="form-label" for="username">Username</label>
+          <input type="text" formControlName="username" class="form-control" />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="profileForm; control: 'username'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+        <!-- Password input -->
+        <div class="form-group col-12">
+          <label class="form-label" for="password">Password</label>
+
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="profileForm; control: 'password'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+        <!-- Submit button -->
+        <div style="text-align: center">
+          <button type="submit" class="btn btn-primary btn btn-danger">
+            Create my account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,206 @@
+<section class="bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div
+          class="card mb-3"
+          style="border-radius: 0.5rem; background-color: #e7ecf0"
+        >
+          <div class="row g-0">
+            <div
+              class="col-md-4 gradient-custom text-center"
+              style="
+                border-top-left-radius: 0.5rem;
+                border-bottom-left-radius: 0.5rem;
+              "
+            >
+              <img
+                src="https://raw.githubusercontent.com/twbs/icons/main/icons/person.svg"
+                alt="Avatar"
+                class="img-fluid my-5"
+                style="width: 80px; color: black"
+              />
+              <h5>
+                {{ currentUser?.firstName ?? "user" }}
+                {{ currentUser?.lastName ?? "user" }}
+              </h5>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4" />
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">
+                      {{ currentUser?.email ?? "info@email.com" }}
+                    </p>
+                  </div>
+                </div>
+                <h6>Address</h6>
+
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <p class="text-muted">
+                      {{ currentUser?.addressLine1 ?? "123 Street" }}
+                      {{ currentUser?.city ?? "New York" }}
+                      {{ currentUser?.zipCode ?? "40203" }}
+                      {{ currentUser?.state ?? "NY" }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-container *ngIf="!editProfile; else edit">
+  <div id="button-div">
+    <button class="btn btn-danger" (click)="startEdit()">Edit Profile</button>
+  </div>
+</ng-container>
+
+<ng-template #edit>
+  <div class="container">
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="formSubmit(profileForm)"
+      class="row mb-4 h-100"
+    >
+      <div class="col-md-6">
+        <div class="form-outline">
+          <label class="form-label" for="firstName">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            id="firstName"
+            class="form-control"
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li
+              *validationErrors="
+                profileForm;
+                control: 'firstName';
+                label: 'first name';
+                let err
+              "
+            >
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-outline">
+          <label class="form-label" for="lastName">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li
+              *validationErrors="
+                profileForm;
+                control: 'lastName';
+                label: 'last name';
+                let err
+              "
+            >
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-outline">
+          <label class="form-label" for="addressLine1">Address</label>
+          <input
+            type="text"
+            formControlName="addressLine1"
+            class="form-control"
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li
+              *validationErrors="
+                profileForm;
+                control: 'addressLine1';
+                label: 'address';
+                let err
+              "
+            >
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-outline">
+          <label class="form-label" for="city">City</label>
+          <input type="text" formControlName="city" class="form-control" />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="profileForm; control: 'city'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-outline">
+          <label class="form-label" for="zipCode">Zip Code</label>
+          <input
+            type="text"
+            formControlName="zipCode"
+            class="form-control"
+          />
+          <ul class="text-danger list-unstyled mt-1">
+            <li
+              *validationErrors="
+                profileForm;
+                control: 'zipCode';
+                label: 'zip code';
+                let err
+              "
+            >
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-outline">
+          <label class="form-label" for="state">State</label>
+          <input type="text" formControlName="state" class="form-control" />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="profileForm; control: 'state'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="col-12">
+        <div class="form-outline">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control" />
+          <ul class="text-danger list-unstyled mt-1">
+            <li *validationErrors="profileForm; control: 'email'; let err">
+              {{ err }}
+            </li>
+          </ul>
+        </div>
+    </div>
+
+      <!-- Submit button -->
+      <div style="text-align: center" id="submit-div">
+        <button type="submit" class="btn btn-danger">Update info</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>

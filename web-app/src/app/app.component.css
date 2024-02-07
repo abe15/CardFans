@@ -1,0 +1,74 @@
+nav {
+  background-color: #1c1c1c;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #9c1111;
+  padding: 2%;
+  color: #868688;
+  margin-top: 3%;
+  
+}
+
+ul {
+  padding-left:0;
+}
+
+.navbar-nav input {
+  background-color: #1c1c1c;
+}
+
+#logo-tag {
+  margin-left: 2%;
+}
+
+#text-logo {
+  font-family: "Rye", cursive;
+}
+
+#logo {
+  margin-bottom: 3%;
+  margin-left: 5%;
+  margin-right: 3%;
+}
+
+#products-button {
+  margin-left: 10%;
+}
+
+#revature-div {
+  width: 40%;
+}
+
+#revature-div img{
+  margin-top: 7%;
+  margin-bottom: 15%;
+}
+
+#quick-links {
+  width:70%;
+  text-align: center;
+}
+
+#quick-links h4 {
+  margin-bottom: 2%;
+}
+
+#quick-links li{
+  display:block;
+  list-style-type: none;
+  margin:auto;
+  margin-bottom: 2%;
+}
+
+#quick-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#quick-links a:hover {
+  color:#1c1c1c;
+}

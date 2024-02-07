@@ -1,0 +1,46 @@
+<div class="container">
+<h2>Shopping Cart</h2>
+<ng-container *ngIf="cart.length == 0; else showCart">
+    <div id="empty-cart">
+       <h5 class="no-items">No items in your cart. <a routerLink="/products">Click here to browse for some!</a></h5> 
+    </div>
+    
+</ng-container>
+
+<ng-template #showCart>
+    <p>{{cart.length}} items in your cart</p>
+    <div class="cart-table" *ngIf="cart.length != 0">
+        <table class="table">
+            <thead>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entry of cart; let i = index">
+                    <td><div class="entry-image"><img src="{{entry.image}}" class="card-img-top" alt="{{entry.name}}" /></div></td>
+                    <td>{{entry.name}}</td>
+                    <td><input type="number" [(ngModel)] = entry.quantity step="1" (change)="updateTotal(i)" min="1" class="bg-dark text-white"></td>
+                    <td>${{entry.price}}</td>
+                    <td>${{entry.total.toFixed(2)}}</td>
+                    <td (click)="removeItem(i)"><span class="delete">X</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="grand-total">
+            <p><strong>Grand Total: ${{getGrandTotal().toFixed(2)}}</strong></p>
+        </div>
+        <div id="bottom-links" class="d-flex justify-content-between">
+                <a routerLink="/products" id="back-link">&larr; Back to Shopping</a>
+                <div *ngIf="currentUser">
+                    <a class="btn btn-danger" routerLink="/checkout" role="button">Checkout</a>
+                </div>
+                <div *ngIf="!currentUser">
+                    <a class="btn btn-danger" role="button" (click)="openLogin()">Log in to Checkout</a>
+                </div>
+        </div>
+    </div>
+</ng-template>
+</div>

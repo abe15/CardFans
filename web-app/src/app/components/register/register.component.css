@@ -1,0 +1,12 @@
+input {
+  background-color: #212529;
+  color: white;
+}
+input:focus {
+  background-color: #212529;
+  color: white;
+}
+
+#form-div {
+  margin-top: 2%;
+}

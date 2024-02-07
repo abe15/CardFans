@@ -1,0 +1,51 @@
+<div class="productGrid">
+  <ul
+    *ngFor="
+      let i of products | slice : (page - 1) * pageSize : page * pageSize;
+      let ind = index
+    "
+    style="text-align: center; list-style: none"
+  >
+    <div class="card h-100">
+      <img
+        src="{{ i.imgUrl }}"
+        class="card-img-top"
+        alt="{{ i.productName }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ i.productName }}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">${{ i.price }}</li>
+      </ul>
+      <div class="card-body">
+        <a
+          class="btn btn-danger"
+          (click)="addCart(i.productId); cartButtonPress($event)"
+          >Add to Cart</a
+        >
+      </div>
+    </div>
+  </ul>
+  <div
+    id="pag"
+    style="
+      align-content: center;
+      list-style: none;
+      width: 100%;
+      display: block;
+      position: relative;
+      justify-content: center;
+    "
+  >
+    <ngb-pagination
+      *ngIf="products.length > 10"
+      class="mb-3 d-flex flex-nowrap px-2"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [collectionSize]="products.length"
+      [maxSize]="10"
+      [boundaryLinks]="true"
+    ></ngb-pagination>
+  </div>
+</div>

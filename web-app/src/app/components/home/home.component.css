@@ -1,0 +1,32 @@
+#home-carousel img {
+    height: 650px;
+}
+
+.carousel-caption {
+    color: white;
+    text-shadow: 2px 2px black;
+    text-align: left;
+}
+
+.carousel-caption h5{
+    font-size: 2.5rem;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.carousel-caption p{
+    font-size: 1.5rem;
+}
+
+#featured-products {
+    text-align: center;
+    margin-top: 3%;
+}
+
+#featured-title {
+    margin-bottom: 2%;
+}
+
+#featured-more {
+    color: #e2283e;
+    font-size: 1.25rem;
+}

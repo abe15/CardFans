@@ -1,0 +1,37 @@
+.productGrid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(4, 200x);
+  color: black;
+  justify-content: center;
+  align-content: center;
+}
+
+.productGrid > div {
+  padding: 50px;
+  border-radius: 25px;
+  display: grid;
+  place-items: center;
+}
+#pag {
+  display: block;
+  place-items: center;
+}
+.productGrid > div {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: black;
+  background-color: #562328;
+  color: white;
+}
+ngb-pagination ::ng-deep .page-item .page-link {
+  border-color: black;
+  background-color: #dc3545;
+  color: white;
+}

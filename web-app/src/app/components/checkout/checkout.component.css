@@ -1,0 +1,51 @@
+h3 {
+    margin-top: 1%;
+}
+
+input {
+    background-color: #1f2226;
+    color: white;
+}
+
+input:focus {
+    background-color: #1f2226;
+    color: white;
+}
+
+table {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+thead {
+    border-bottom: 2px solid white;
+}
+
+.invalid-form {
+    color: red;
+}
+
+#checkout-div {
+    display:flex;
+    justify-content: center;
+    margin: 2% 2% 2%;
+}
+
+#form-div {
+    display:block;
+    width: 60%;
+    margin-right:10%;
+}
+
+#cart-preview {
+    width: 20%;
+}
+#subtotal {
+    border-top: 2px solid white;
+}
+
+#grand-total {
+    font-weight: bold;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Order History</h2>
+  <p>{{orders.length}} orders placed in the last 12 months</p>
+  <div *ngFor="let order of orders; let j = index">
+    <h3>Order id: {{order.orderId}}</h3>
+    <div class="cart-table" *ngIf="orders.length != 0">
+      <table class="table">
+        <thead>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of order.items; let i = index">
+            <td>
+              <div class="entry-image">
+                <img
+                  src="{{entry.product.imgUrl}}"
+                  class="card-img-top"
+                  alt="{{entry.product.productName}}"
+                />
+              </div>
+            </td>
+            <td>{{entry.product.productName}}</td>
+            <td>
+              <p class="bg-dark text-white">{{entry.quantity}}</p>
+            </td>
+            <td>${{entry.product.price}}</td>
+            <td>${{entry.product.price.toFixed(2)}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="grand-total">
+        <p>
+          <strong>Grand Total: ${{order.total.toFixed(2)}}</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
